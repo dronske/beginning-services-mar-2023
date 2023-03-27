@@ -16,13 +16,15 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(pol =>
     {
-        pol.AllowAnyHeader();
         pol.AllowAnyOrigin();
+        pol.AllowAnyHeader();
         pol.AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
+
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

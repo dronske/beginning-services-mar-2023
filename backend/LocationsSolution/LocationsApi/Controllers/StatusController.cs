@@ -30,8 +30,8 @@ public class StatusController : ControllerBase
                 Hours = sinceStartup.Hours,
                 Minutes = sinceStartup.Minutes,
                 Days = sinceStartup.Days,
-                Seconds = sinceStartup.Seconds,
-                Milliseconds = sinceStartup.Milliseconds
+                // Seconds = sinceStartup.Seconds,
+                // Milliseconds = sinceStartup.Milliseconds
             }
         };
         return Ok(response);
