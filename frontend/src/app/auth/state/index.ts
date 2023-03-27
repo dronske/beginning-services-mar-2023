@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { authDocuments, authEvents } from './auth.actions';
+import { authDocuments } from './auth.actions';
 
 interface AuthState {
   loggedIn: boolean;

@@ -26,6 +26,7 @@ export const locationFeature = createFeature({
     on(locationDocuments.locations, (s, a) => ({
       loading: false,
       locations: a.payload,
-    }))
+    })),
+    on(locationDocuments.location, (s,a) => ({...s, locations: [a.payload, ...s.locations]}))
   ),
 });

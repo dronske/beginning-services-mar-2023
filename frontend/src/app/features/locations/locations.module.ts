@@ -10,6 +10,7 @@ import { ListComponent } from './containers/list/list.component';
 import { LocationsComponent } from './locations.component';
 import { locationFeature } from './state';
 import { LocationEffects } from './state/effects/locations.effects';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +41,7 @@ const routes: Routes = [
     StoreModule.forFeature(locationFeature),
     EffectsModule.forFeature([LocationEffects]),
     HttpClientModule,
+    ReactiveFormsModule
   ],
 })
 export class LocationsModule {}

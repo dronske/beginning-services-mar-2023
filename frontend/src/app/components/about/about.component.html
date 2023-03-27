@@ -1,1 +1,15 @@
-<p>about works!</p>
+<h2>About Us</h2>
+
+<p>We are a small band of scrappy developers...</p>
+
+<div class="card" *ngIf="model$ | async as model">
+    <div class="card-header">For Support</div>
+    <div class="card-body">
+        <p><b>Contact</b>: {{model.contactInfo.name}}</p>
+        <p><b>Phone</b>: {{model.contactInfo.phone}}</p>
+        <p><b>Email</b>: {{model.contactInfo.email}}</p>
+    </div>
+    <div class="card-footer">
+        <small>API has been up for {{model.uptime.days}} days, {{model.uptime.hours}} hours and {{model.uptime.minutes}} minutes.</small>
+    </div>
+</div>
