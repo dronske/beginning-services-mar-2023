@@ -21,23 +21,23 @@ let data =  [
 ]
 export const mocks = [
 
-  rest.get(url + 'support', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        "contactInfo": {
-          "name": "Andrew Mervkin",
-          "phone": "888-1212",
-          "email": "merv@pumpkin.com"
-        },
-        uptime: {
-          days: 13,
-          hours: 12,
-          minutes: 38
-        }
-      })
-    )
-  }),
+  // rest.get(url + 'support', (req, res, ctx) => {
+  //   return res(
+  //     ctx.status(200),
+  //     ctx.json({
+  //       "contactInfo": {
+  //         "name": "Andrew Mervkin",
+  //         "phone": "888-1212",
+  //         "email": "merv@pumpkin.com"
+  //       },
+  //       uptime: {
+  //         days: 13,
+  //         hours: 12,
+  //         minutes: 38
+  //       }
+  //     })
+  //   )
+  // }),
 
   rest.post(url + 'locations', async (req, res, ctx) => {
     const reqBody = await req.json();
