@@ -15,9 +15,10 @@ public class StatusController : ControllerBase
 
 
     // GET /status
-    [HttpGet("/status")]
+    [HttpGet("/support")]
     public async Task<ActionResult> GetStatus()
     {
+        var sinceStartup =  DateTime.Now - _clock.UpSince;
         var response = new GetStatusResponse()
         {
                ContactInfo = new ContactInfo()
@@ -28,9 +29,11 @@ public class StatusController : ControllerBase
                },
                Uptime = new Uptime
                {
-                   Hours = 23,
-                   Minutes = 59,
-                   Days = 2384,
+                   Hours = sinceStartup.Hours,
+                   Minutes = sinceStartup.Minutes,
+                   Days = sinceStartup.Days,
+                   Seconds = sinceStartup.Seconds,
+                   Milliseconds = sinceStartup.Milliseconds
                }
         };
         return Ok(response);

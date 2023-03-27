@@ -14,7 +14,19 @@ builder.Services.AddSwaggerGen();
 var clock = new UptimeClock();
 builder.Services.AddSingleton<UptimeClock>(clock);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(pol =>
+    {
+        pol.AllowAnyOrigin(); // Promiscuous 
+        pol.AllowAnyHeader();
+        pol.AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors();
 // This would have been in the Configure method in startup
 // the thing that will actually handle incoming requests.
 // Configure the HTTP request pipeline.
