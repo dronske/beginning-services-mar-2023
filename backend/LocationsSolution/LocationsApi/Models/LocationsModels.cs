@@ -4,6 +4,7 @@ public record LocationsResponse
 {
     public List<LocationItemResponse> _embedded { get; set; } = new();
 }
+
 public record LocationItemResponse
 {
     public string Id { get; init; } = string.Empty;
