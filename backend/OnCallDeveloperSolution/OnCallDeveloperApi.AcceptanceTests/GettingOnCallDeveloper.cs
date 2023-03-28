@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OnCallDeveloperApi.Models;
+using Moq;
+using OnCallDeveloperApi.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace OnCallDeveloperApi.AcceptanceTests;
 
@@ -15,7 +18,15 @@ public class GettingOnCallDeveloper
     [Fact]
     public async Task CanGetOnCallDeveloperDuringWeekdays()
     {
-        await using var host = await AlbaHost.For<Program>();
+        await using var host = await AlbaHost.For<Program>(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                var stubbedSupportSchedule = new Mock<IProvideSupportSchedule>();
+                stubbedSupportSchedule.Setup(sched => sched.InternalSupportAvailable).Returns(true);
+                services.AddScoped<IProvideSupportSchedule>((_) => stubbedSupportSchedule.Object);
+            });
+        });
         var response = await host.Scenario(api =>
         {
             api.Get.Url("/oncalldeveloper");
@@ -34,7 +45,15 @@ public class GettingOnCallDeveloper
     [Fact]
     public async Task CanGetOnCallDeveloperDuringWeekends()
     {
-        await using var host = await AlbaHost.For<Program>();
+        await using var host = await AlbaHost.For<Program>(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                var stubbedSupportSchedule = new Mock<IProvideSupportSchedule>();
+                stubbedSupportSchedule.Setup(sched => sched.InternalSupportAvailable).Returns(false);
+                services.AddScoped<IProvideSupportSchedule>((_) => stubbedSupportSchedule.Object);
+            });
+        });
         var response = await host.Scenario(api =>
         {
             api.Get.Url("/oncalldeveloper");
