@@ -1,6 +1,7 @@
 using LocationsApi;
 using LocationsApi.Adapters;
 using LocationsApi.Services;
+using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,18 @@ builder.Services.AddCors(options =>
         pol.AllowAnyHeader();
         pol.AllowAnyMethod();
     });
+});
+
+var locationsConnectionString = builder.Configuration.GetConnectionString("locations-db");
+if(locationsConnectionString is null)
+{
+    throw new Exception("Can't start up without connection to database");
+}
+
+builder.Services.AddMarten(options =>
+{
+    options.Connection(locationsConnectionString);
+    options.AutoCreateSchemaObjects = Weasel.Core.AutoCreate.All;
 });
 
 var app = builder.Build();
