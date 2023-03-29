@@ -46,6 +46,7 @@ if(locationsConnectionString is null)
     throw new Exception("Can't start up without a connection string to the datbase, fool!");
 }
 
+
 builder.Services.AddMarten(options =>
 {
     options.Connection(locationsConnectionString);

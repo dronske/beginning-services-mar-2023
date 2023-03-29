@@ -20,6 +20,7 @@ public class StatusController : ControllerBase
 
     // GET /status
     [HttpGet("/support")]
+    [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 10)]
     public async Task<ActionResult> GetStatus()
     {
         var sinceStartup =  DateTime.Now - _clock.UpSince;
