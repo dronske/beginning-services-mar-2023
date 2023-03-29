@@ -1,4 +1,5 @@
-﻿using LocationsApi.Models;
+﻿using LocationsApi.Adapters;
+using LocationsApi.Models;
 using LocationsApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,11 +8,14 @@ namespace LocationsApi.Controllers;
 public class StatusController : ControllerBase
 {
     private readonly UptimeClock _clock;
+    private readonly OnCallDeveloperHttpAdapter _adapter;
 
-    public StatusController(UptimeClock clock)
+    public StatusController(UptimeClock clock, OnCallDeveloperHttpAdapter adapter)
     {
         _clock = clock;
+        _adapter = adapter;
     }
+
 
 
     // GET /status
@@ -19,14 +23,25 @@ public class StatusController : ControllerBase
     public async Task<ActionResult> GetStatus()
     {
         var sinceStartup =  DateTime.Now - _clock.UpSince;
+        ContactInfo? contactInfo;
+        try
+        {
+            contactInfo = await _adapter.GetContactInfoAsync();
+        }
+        catch (Exception)
+        {
+
+            //contactInfo = new ContactInfo
+            //{
+            //    Name = "Front Desk",
+            //    Email = "frontdesk@company.com",
+            //    Phone = "888-2828"
+            //};
+            contactInfo = null;
+        }
         var response = new GetStatusResponse()
         {
-               ContactInfo = new ContactInfo()
-               {
-                   Name = "Bob Smith",
-                   Email = "bob@aol.com",
-                   Phone = "555-1212"
-               },
+               ContactInfo = contactInfo,
                Uptime = new Uptime
                {
                    Hours = sinceStartup.Hours,

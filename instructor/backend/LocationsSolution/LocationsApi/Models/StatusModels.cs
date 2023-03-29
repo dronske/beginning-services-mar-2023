@@ -3,7 +3,7 @@
 
 public class GetStatusResponse
 {
-    public ContactInfo ContactInfo { get; set; } = new();
+    public ContactInfo? ContactInfo { get; set; } = new();
     public Uptime Uptime { get; set; } = new();
 
 }

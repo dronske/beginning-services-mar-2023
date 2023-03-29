@@ -21,3 +21,29 @@ Should return something like this:
         }
       }
 ```
+
+## GET /locations
+
+```json
+{
+  "_embedded": [
+  {
+    id: '1',
+    name: "Aladdin's Eatery",
+    description:
+      'On Mayfield, good lunch time - lots of options for vegetarians',
+    addedBy: 'Bob',
+    addedOn: '2023-01-01',
+  },
+  {
+    id: '2',
+    name: "McDonald's",
+    description: 'On SOM, burgers. No description needed.',
+    addedBy: 'Sue',
+    addedOn: '2023-03-01',
+  },
+]
+}
+
+
+```
