@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locations-api
+spec:
+  selector:
+    matchLabels:
+      app: locations-api
+  template:
+    metadata:
+      labels:
+        app: locations-api
+    spec:
+      containers:
+      - name: locations-api
+        image: locations-api:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      env:
+        - name: onCallAddress
+          value: http://on-call-developer-Service
+        - name: ConnectionSTrings__locations-db
+          value: "some connection string"

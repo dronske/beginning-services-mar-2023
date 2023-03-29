@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: locations-api
+spec:
+  selector:
+    app: locations-api
+  ports:
+  - port: 1338
+    targetPort: 80
