@@ -25,7 +25,7 @@ app.MapGet("/oncalldeveloper", (IProvideSupportSchedule supportSchedule) =>
     {
         response = new OnCallDeveloperModel
         {
-            Name = "Bob Smith",
+            Name = "Robert Smith",
             Phone = "888-8888",
             Email = "bob@company.com"
         };

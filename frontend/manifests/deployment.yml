@@ -1,22 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: on-call-developer-api
-  namespace: locations-app
+  name: locations-frontend
 spec:
-  
   selector:
     matchLabels:
-      app: on-call-developer-api
-  replicas: 1
+      app: locations-frontend
   template:
     metadata:
       labels:
-        app: on-call-developer-api
+        app: locations-frontend
     spec:
       containers:
-      - name: on-call-developer-api
-        image: on-call-developer-api:v2
+      - name: locations-frontend
+        image: locations-frontend:v1
         resources:
           limits:
             memory: "128Mi"

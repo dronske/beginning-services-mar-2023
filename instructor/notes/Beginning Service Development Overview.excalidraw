@@ -4058,12 +4058,46 @@
       "originalText": "Beginning Service Development"
     },
     {
-      "id": "J5Zc2ddGDVtsSvd2iFlfq",
       "type": "text",
+      "version": 42,
+      "versionNonce": 57936942,
+      "isDeleted": false,
+      "id": "J5Zc2ddGDVtsSvd2iFlfq",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
       "x": 1897.0218354889048,
       "y": 1106.4613556533664,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
       "width": 139,
       "height": 75,
+      "seed": 908726514,
+      "groupIds": [],
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1680033297388,
+      "link": null,
+      "locked": false,
+      "fontSize": 20,
+      "fontFamily": 1,
+      "text": "\"Service Mesh\"\n    - SRE\n    - Istio",
+      "baseline": 68,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "\"Service Mesh\"\n    - SRE\n    - Istio"
+    },
+    {
+      "id": "uzsJmG4jHYTP6hQ0JKGwu",
+      "type": "line",
+      "x": 1307.3075497746195,
+      "y": 1476.7470699390806,
+      "width": 50,
+      "height": 166,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -4073,23 +4107,32 @@
       "roughness": 1,
       "opacity": 100,
       "groupIds": [],
-      "roundness": null,
-      "seed": 908726514,
-      "version": 42,
-      "versionNonce": 57936942,
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1068317430,
+      "version": 24,
+      "versionNonce": 1016548778,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1680033297388,
+      "updated": 1680119134381,
       "link": null,
       "locked": false,
-      "text": "\"Service Mesh\"\n    - SRE\n    - Istio",
-      "fontSize": 20,
-      "fontFamily": 1,
-      "textAlign": "left",
-      "verticalAlign": "top",
-      "baseline": 68,
-      "containerId": null,
-      "originalText": "\"Service Mesh\"\n    - SRE\n    - Istio"
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -50,
+          -166
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": null,
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": null
     }
   ],
   "appState": {

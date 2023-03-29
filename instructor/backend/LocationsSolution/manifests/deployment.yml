@@ -11,8 +11,10 @@ spec:
     metadata:
       labels:
         app: locations-api
+    
     spec:
       containers:
+      
       - name: locations-api
         image: locations-api:v1
         resources:
@@ -21,3 +23,8 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+        env:
+          - name: onCallAddress
+            value: http://on-call-developer-service
+          - name: ConnectionStrings__locations-db
+            value: "host=postgres-service;username=postgres;password=TokyoJoe138!"

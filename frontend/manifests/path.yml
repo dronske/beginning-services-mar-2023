@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: locations-frontend-path
+  labels:
+    name: locations-frontend-path
+spec:
+  rules:
+  - host: app.company.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: locations-frontend-service
+            port: 
+              number: 80
